@@ -1,0 +1,65 @@
+"""
+    @ creator: LunaChaos
+    @ tool: Simulacron-3
+    @ background: tsukasa-4468
+"""
+
+#!/usr/bin/env python
+#coding: utf-8
+
+
+# when I was a kid in python's word...
+
+t = input()
+
+count = 0
+for item in list(t):
+    if item == ':':
+        if count == 1:
+            hour = hour10
+            break
+        else:
+            break
+    else:
+        count += 1
+        if count == 2:
+            hour = hour10 * 10 + int(item)
+        else:
+            hour10 = int(item)
+
+if t[2] == ':':
+    if len(t) == 4:
+        minus = int(t[3])
+    else:
+        minus = int(t[3]) * 10 + int(t[4])
+else:
+    if len(t) == 3:
+        minus = int(t[2])
+    else:
+        minus = int(t[2]) * 10 + int(t[3])
+
+if hour >= 12:
+    if hour == 12:
+        print(str(hour) + ':' + str(minus) + ' PM')
+    else:
+        hour -= 12
+        print(str(hour) + ':' + str(minus) + ' PM')
+else:
+    print(str(hour) + ':' + str(minus) + ' AM')
+
+
+# after I learn the split()
+
+def main():
+	h,m = input().split(":")
+	h=int(h)
+	if h>12:
+		print(f"{h - 12}:{m} PM")
+	elif h==12:
+		print(f"{h}:{m} PM")
+	else:
+		print(f"{h}:{m} AM")
+
+main()
+
+# wdnmd..................................
